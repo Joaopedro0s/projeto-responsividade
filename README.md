@@ -8,17 +8,18 @@ Os temas e perguntas ficam em `src/secoes.ts`. Cada tema tem uma rota em `src/ro
 
 O PDF anuncia seis seções de conteúdo, enumera cinco e pede ainda o Desafio. A estrutura cobre os cinco temas identificados e a página final. Confirmar com o professor se há outro tema.
 
-## Roteiro para a dupla
+## Andamento
 
-1. Pesquisar uma seção por vez. Em cada tela, escrever uma explicação para iniciantes, incluir um exemplo comentado, responder à pergunta-guia e listar as fontes ao final.
-   - Responsividade e meta viewport.
-   - Unidades absolutas e relativas e quando usar rem, em, %, fr, vw, vh, dvh e ch.
-   - Flexbox e Grid em uma ou duas dimensões, justify-content, align-items, flex-wrap, gap e repeat(auto-fit, minmax()).
-   - Imagens com max-width de 100%, height auto, width e height no HTML, loading lazy e suas exceções, aspect-ratio, object-fit e srcset.
-   - Estrutura e nomes de componentes Vue, props tipadas, eventos, :key no v-for, variáveis CSS, LCP, INP, CLS e carregamento de rotas sob demanda.
-2. Construir pelo menos três laboratórios interativos. O enunciado sugere experimentar a largura de um contêiner, converter unidades ou observar imagens carregando. Planejar o uso de Pinia e de uma API, tópicos de revisão mencionados na apresentação.
-3. Criar a pergunta do Desafio usando o guia produzido pela dupla.
-4. Desenvolver a identidade visual e testar no navegador e no celular. Conferir o menu, as medidas em rem, as variáveis de cor e espaçamento, as consultas com min-width e a ausência de conteúdo vazando e de rolagem horizontal.
-5. Preparar a apresentação de 01/12/2026 e a possibilidade de explicar o laboratório de outra equipe.
-6. Publicar o site e manter o repositório no GitHub com README. Até 22/12/2026 às 23h59, cada integrante entrega os links do site e do repositório e uma captura de tela do site no celular da dupla.
-# projeto-responsividade
+| Item | Estado |
+| --- | --- |
+| Base (Vue, Router, Pinia, menu em botão no celular, tokens CSS, mobile-first) | pronto |
+| Seção 1 – Por que responsividade importa | pronto |
+| Seção 2 – Unidades CSS (+ laboratório conversor de unidades) | pronto |
+| Seção 3 – Flexbox e Grid (+ laboratório de largura do contêiner) | pronto |
+| Indicador fixo de largura e breakpoint (usa Pinia) | pronto |
+| Seção 4 – Imagens responsivas (+ laboratório de imagem com atraso) | a fazer |
+| Seção 5 – Boas práticas em Vue (+ laboratório de :key) | a fazer |
+| Página Desafio | a fazer |
+| Publicação (Vercel, Netlify ou GitHub Pages) | a fazer |
+
+Prazos: apresentação em 01/12/2026; entrega (link do site, link do repositório e captura de tela no celular) até 22/12/2026, 23h59, por cada integrante.

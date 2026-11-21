@@ -1,7 +1,9 @@
+// Cada seção tem uma rota. Quando `view` existe, a página própria é carregada sob demanda;
+// sem `view`, a rota cai no molde provisório SecaoView.vue (seção ainda a escrever).
 export const secoes = [
-  { caminho: 'responsividade', titulo: 'Por que responsividade importa', pergunta: 'Por que um site com media queries aparece minúsculo no celular sem a meta viewport? O que essa meta muda?' },
-  { caminho: 'unidades-css', titulo: 'Unidades CSS', pergunta: 'Por que aumentar a fonte padrão do navegador afeta o texto em rem e mantém o texto em px do mesmo tamanho?' },
-  { caminho: 'flexbox-e-grid', titulo: 'Flexbox e Grid', pergunta: 'Com repeat(auto-fit, minmax(14rem, 1fr)), gap de 1rem e 1rem igual a 16px, a partir de qual largura em px cabem duas colunas? Mostre a conta.' },
-  { caminho: 'imagens', titulo: 'Imagens responsivas', pergunta: 'Por que uma imagem sem width e height no HTML pode empurrar o texto ao carregar? Qual métrica do Google mede esse deslocamento?' },
-  { caminho: 'boas-praticas-vue', titulo: 'Boas práticas em projetos Vue', pergunta: 'Em uma lista de animais com v-for sem :key, o que pode acontecer com o texto digitado no segundo item ao remover o primeiro animal? Por quê?' },
-]
+  { caminho: 'responsividade', titulo: 'Por que responsividade importa', pergunta: 'Um site tem media queries bem escritas, mas não tem a meta tag viewport. No celular, ele aparece como a versão de computador, só que minúscula. Por que isso acontece, e o que a meta viewport muda?', view: () => import('./views/secoes/ResponsividadeView.vue') },
+  { caminho: 'unidades-css', titulo: 'Unidades CSS', pergunta: 'Uma pessoa com baixa visão aumenta o tamanho da fonte nas configurações do navegador. O texto definido em px continua do mesmo tamanho, e o definido em rem aumenta. Por que essa diferença acontece?', view: () => import('./views/secoes/UnidadesView.vue') },
+  { caminho: 'flexbox-e-grid', titulo: 'Flexbox e Grid', pergunta: 'Um contêiner usa grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)) e gap: 1rem. A partir de qual largura do contêiner, em px, os cards deixam de ficar em 1 coluna e passam para 2? Considere 1rem = 16px e mostre a conta.', view: () => import('./views/secoes/FlexGridView.vue') },
+  { caminho: 'imagens', titulo: 'Imagens responsivas', pergunta: 'Ao abrir uma página, o texto aparece primeiro. Quando a imagem termina de carregar, ela empurra o texto para baixo. Por que isso acontece quando a imagem não tem width e height no HTML? Qual métrica do Google mede esse problema?' },
+  { caminho: 'boas-praticas-vue', titulo: 'Boas práticas em projetos Vue', pergunta: 'Uma lista de animais é exibida com v-for, sem :key, e cada item tem um campo de texto. A pessoa digita algo no campo do segundo animal, e em seguida o primeiro animal é removido da lista. O que pode acontecer com o texto digitado, e por quê?' },
+] as { caminho: string; titulo: string; pergunta: string; view?: () => Promise<unknown> }[]

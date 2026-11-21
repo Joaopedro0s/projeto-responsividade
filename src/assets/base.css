@@ -1,27 +1,58 @@
+/* Mobile-first: o que está fora das media queries é o layout do celular. */
 :root {
-  --fundo: #faf9f5;
-  --texto: #222823;
-  --link: #255c40;
+  /* design tokens */
+  --papel: #f4efe1;
+  --tinta: #14213d;
+  --destaque: #fca311;
+  --destaque-escuro: #b4570a;
+  --link: #0b5fa5;
   --espaco-curto: 0.5rem;
   --espaco: 1rem;
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
-  color: var(--texto);
-  background: var(--fundo);
+  --espaco-longo: 2rem;
+  --fonte-mono: ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+  --fonte-texto: Georgia, 'Times New Roman', serif;
+  font-family: var(--fonte-texto);
+  font-size: 100%;
+  line-height: 1.6;
+  color: var(--tinta);
+  background-color: var(--papel);
+  /* papel milimetrado */
+  background-image:
+    linear-gradient(rgba(20, 33, 61, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 33, 61, 0.07) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
 }
 * { box-sizing: border-box; }
 body { margin: 0; overflow-wrap: anywhere; }
+img { max-width: 100%; height: auto; }
+
 header, main { max-width: 65rem; margin: auto; padding: var(--espaco); }
-header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espaco); }
-button { margin-inline-start: auto; padding: var(--espaco-curto) var(--espaco); font: inherit; }
-nav { display: none; width: 100%; gap: var(--espaco); }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espaco); border-bottom: 3px solid var(--tinta); }
+header strong { font-family: var(--fonte-mono); text-transform: uppercase; letter-spacing: 0.05em; }
+button { margin-inline-start: auto; padding: var(--espaco-curto) var(--espaco); font: inherit; font-family: var(--fonte-mono); background: var(--destaque); border: 2px solid var(--tinta); cursor: pointer; }
+nav { display: none; width: 100%; gap: var(--espaco-curto); font-family: var(--fonte-mono); font-size: 0.875rem; }
 nav.aberto { display: grid; }
 a { color: var(--link); }
-a[aria-current="page"] { font-weight: bold; }
-article { max-width: 65ch; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.25rem; }
+nav a { color: var(--tinta); text-decoration: none; padding: 0.25rem 0.5rem; border-bottom: 2px solid transparent; }
+nav a:hover { border-color: var(--tinta); }
+nav a[aria-current="page"], nav a.router-link-active { background: var(--tinta); color: var(--papel); }
+
+article { max-width: 65ch; padding-bottom: 4rem; }
+h1 { font-family: var(--fonte-mono); font-size: 1.75rem; line-height: 1.2; margin-block: var(--espaco-longo) var(--espaco); }
+h2 { font-family: var(--fonte-mono); font-size: 1.125rem; margin-block: var(--espaco-longo) var(--espaco-curto); display: flex; gap: var(--espaco-curto); align-items: center; }
+h3 { font-family: var(--fonte-mono); font-size: 1rem; }
+.num { display: inline-grid; place-items: center; min-width: 1.75rem; height: 1.75rem; background: var(--destaque); border: 2px solid var(--tinta); }
+code { font-family: var(--fonte-mono); font-size: 0.875em; background: rgba(20, 33, 61, 0.1); padding: 0 0.25em; }
+pre code { background: none; padding: 0; }
+.enunciado { border-inline-start: 4px solid var(--destaque); padding-inline-start: var(--espaco); font-style: italic; }
+.aviso { padding: var(--espaco); border: 2px dashed var(--destaque-escuro); }
+footer ul { padding-inline-start: 1.25rem; }
+
 @media (min-width: 48rem) {
   header button { display: none; }
-  nav, nav.aberto { display: flex; flex-wrap: wrap; }
+  nav, nav.aberto { display: flex; flex-wrap: wrap; width: auto; margin-inline-start: auto; }
+  h1 { font-size: 2.5rem; }
+}
+@media (min-width: 64rem) {
+  main { padding-block: var(--espaco-longo); }
 }

@@ -1,15 +1,15 @@
 <script setup lang="ts">
+import SecaoLayout from '../components/SecaoLayout.vue'
 defineProps<{ titulo: string; pergunta: string }>()
 </script>
 
+<!-- Molde provisório das seções ainda não escritas. Para concluir uma seção: crie uma view em
+     src/views/secoes/ (veja ResponsividadeView.vue) e aponte `view` em src/secoes.ts. -->
 <template>
-  <article>
-    <h1>{{ titulo }}</h1>
-    <!-- 1. Explicação curta para quem está no primeiro semestre. -->
-    <!-- 2. Exemplo de código comentado. -->
-    <h2>Pergunta-guia</h2>
-    <p>{{ pergunta }}</p>
-    <!-- 3. Resposta visível à pergunta desta seção. -->
-    <!-- 4. Fontes consultadas, ao final da seção. -->
-  </article>
+  <SecaoLayout :titulo="titulo" :pergunta="pergunta">
+    <p class="aviso">Seção em construção.</p>
+    <template #exemplo><p class="aviso">Exemplo de código a escrever.</p></template>
+    <template #resposta><p class="aviso">Resposta a escrever.</p></template>
+    <template #fontes><li>A listar.</li></template>
+  </SecaoLayout>
 </template>
